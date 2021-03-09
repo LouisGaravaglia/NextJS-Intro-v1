@@ -7,7 +7,7 @@ export default function Home() {
       <title>Home Page</title>
       <meta name="keywords" content="web development, programming"/>
     </Head>
-      <h1>Welcom to Next</h1>
+      <h1>Welcome to Next</h1>
     </div>
   )
 }
