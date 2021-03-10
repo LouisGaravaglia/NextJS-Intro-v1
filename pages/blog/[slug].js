@@ -1,13 +1,11 @@
 import React from "react";
 import Head from 'next/head'
-import Link from "next/link";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import marked from "marked";
 
 export default function Post({htmlString, data}) {
-    console.log("data: ", data);
 
   return (
     <div>
@@ -17,7 +15,7 @@ export default function Post({htmlString, data}) {
         <meta title="description" content={data.description} />
         </Head>
 
-    <h1>CONTENTS BELOW</h1>
+    <h1>BLOG POST</h1>
         <div dangerouslySetInnerHTML={{__html: htmlString}} />
     </div>
   )
@@ -31,9 +29,7 @@ export const getStaticPaths = async () => {
             slug: filename.replace(".md", "")
         }
     }));
-    console.log(files);
-    console.log("paths ", paths);
-  
+
     return {
         paths,
         fallback: false

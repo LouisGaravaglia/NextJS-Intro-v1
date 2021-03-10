@@ -1,4 +1,4 @@
-.nav {
+/* .nav {
     height: 50px;
     padding: 10px;
     background-color: black;
@@ -13,9 +13,12 @@
     align-items: center;
     justify-content: center;
     list-style: none;
+    color: white;
 }
 
-.nav ul li {
-    list-style: none;
-    flex-wrap: nowrap;
+
+.nav-link{
+    color: white;
+    
 }
+ */
