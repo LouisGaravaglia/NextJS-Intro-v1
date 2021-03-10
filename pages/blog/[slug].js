@@ -23,6 +23,7 @@ export default function Post({htmlString, data}) {
   )
 }
 
+//STATIC GENERATION METHOD FOR RENDERING HTML PAGES IN ADVANCE AT BUILD TIME
 export const getStaticPaths = async () => {
     const files = fs.readdirSync("posts")
     const paths = files.map(filename => ({
@@ -39,6 +40,7 @@ export const getStaticPaths = async () => {
     };
 };
 
+//STATIC GENERATION METHOD FOR SENDING DATA FROM BACKEND TO COMPONENTS AT BUILD TIME
 export const getStaticProps = async ({params: {slug}}) => {
     const markdownWithMetaData = fs.readFileSync(path.join("posts", slug + ".md")).toString();
     const parsedMarkdown = await matter(markdownWithMetaData);
