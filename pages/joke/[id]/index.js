@@ -14,6 +14,8 @@ export default function joke({jokeObj}) {
   )
 }
 
+//getProps and Paths calls are only rendered on server side, so you don't have to worry about running querys
+//because the code wont be sent to the client side.
 export const getServerSideProps = async (context) => {
     const res = await fetch(`https://api.chucknorris.io/jokes/${context.params.id}`);
     const jokeObj = await res.json();
@@ -24,3 +26,27 @@ export const getServerSideProps = async (context) => {
         }
     }
 }
+
+
+//THIS IS FASTER BECAUSE IT'S GENERATED AT BUILD TIME
+// export const getStaticProps = async (context) => {
+//     const res = await fetch(`https://api.chucknorris.io/jokes/${context.params.id}`);
+//     const jokeObj = await res.json();
+
+//     return {
+//         props: {
+//             jokeObj
+//         }
+//     }
+// }
+
+// export const getStaticPaths = async (context) => {
+//     const res = await fetch(`https://api.chucknorris.io/jokes/${context.params.id}`);
+//     const jokeObj = await res.json();
+
+//     return {
+//         props: {
+//             jokeObj
+//         }
+//     }
+// }
